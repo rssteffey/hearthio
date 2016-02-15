@@ -19,3 +19,8 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 semantic:ui
 flemay:less-autoprefixer
 react
+meteorhacks:npm
+cosmos:browserify
+
+
+npm-container
