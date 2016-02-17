@@ -5,6 +5,7 @@ Task = React.createClass({
     // We can use propTypes to indicate it is required
     task: React.PropTypes.object.isRequired
   },
+  
   render: function() {
     return (
       <li>{this.props.task.text}</li>

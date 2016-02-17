@@ -13,12 +13,44 @@ App = React.createClass({
       return <Task key={task._id} task={task} />;
     });
   },
+  
+  getHueBridgeIpAddress: function() {
+    
+    var displayBridges = function(bridge) {
+      console.log(JSON.stringify(bridge[0].ipaddress));
+      return [
+        {_id: 1, text: JSON.stringify(bridge[0].ipaddress)}
+      ];
+    };
+    
+    
+    
+    //console.log(Meteor.wrapAsync(foo));
+    /*
+    HueApi.nupnpSearch(function(err, result) {
+      if (err) {throw err;}
+      console.log(JSON.stringify(bridge[0].ipaddress));
+      return [
+          {_id: 1, text: JSON.stringify(bridge[0].ipaddress)}
+      ];
+    });
+    */
+    
+    console.log("getHueBridgeIpAddress");
+    
+  },
+  
+  renderHueBridgeIpAddress: function() {
+    return this.getHueBridgeIpAddress().map((hue) => {
+      return <Hue key={hue._id} ipAddress={hue} />
+    })
+  },
  
   render: function() {
     return (
       <div className="container">
         <header>
-          <h1>Todo List for Shawn</h1>
+          <h1>Bridge IP:</h1> <Hue />
         </header>
  
         <ul>
