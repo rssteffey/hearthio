@@ -3,7 +3,7 @@ App = React.createClass({
   getTasks: function() {
     return [
       { _id: 1, text: "Task 1: Make a Widget" },
-      { _id: 2, text: "Task 2: Make it Heartio Trailer" },
+      { _id: 2, text: "Task 2: Make a Hearthio Trailer" },
       { _id: 3, text: "Task 3: Profit" }
     ];
   },
@@ -56,7 +56,12 @@ App = React.createClass({
         <ul>
           {this.renderTasks()}
         </ul>
+
+        <div id="widgets-panel">
+          <Widgets_Panel />
+        </div>
       </div>
+      
     );
   }
 });

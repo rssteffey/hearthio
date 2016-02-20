@@ -1,31 +1,17 @@
-HS = React.createClass({
-  getInitialState: function() {
-      return {
-          _id: 1,
-          text: "Loading..."
-      };
-  },
-  
-  componentDidMount: function() {
-    this.serverRequest = HueApi.nupnpSearch(function(err, result) {
-      if (err) {throw err;}
-      console.log(result[0].ipaddress);
-      console.log("componentDidMount");
-      
-      this.setState({
-        _id: 1,
-        text: result[0].ipaddress
-      });
-    }.bind(this));
-  },
-
-  componentWillUnmount: function() {
-    this.serverRequest.abort();
+Hs_Picker = React.createClass({
+  propTypes: {
+    // This component gets the task to display through a React prop.
+    // We can use propTypes to indicate it is required
+    object: 5
   },
   
   render: function() {
     return (
-      <div>{this.state.text}</div>
+      <div className="hs_picker widget">
+        <h3>{this.props.object.name}</h3>
+        <div><p>Hue: {this.props.object.hue}</p></div>
+        <div><p>Sat: {this.props.object.sat}</p></div>
+      </div>
     );
   }
 });
