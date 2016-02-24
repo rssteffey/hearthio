@@ -11,8 +11,6 @@ Hs_Picker = React.createClass({
         <h3>{this.props.object.name}</h3>
         <div><p>Hue: {this.props.object.hue}</p></div>
         <div><p>Sat: {this.props.object.sat}</p></div>
-
-        <div id="slider"> </div>
       </div>
     );
   }
