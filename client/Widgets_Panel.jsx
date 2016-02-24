@@ -3,11 +3,11 @@ Widgets_Panel = React.createClass({
 
   getWidgets: function() {
     return [
-      { _id: 1, widget_type: 'Hs_Picker', name: 'Hue and Saturation', hue: 42, sat: 255 },
-      { _id: 2, widget_type: 'Hs_Picker', name: 'Hue and Saturation', hue: 254, sat: 12 },
-      { _id: 4, widget_type: 'Brightness_100', name: 'Dimmer', status: .60 },
-      { _id: 5, widget_type: 'Battery_Life', name: 'Battery Life', battery: .76 },
-      { _id: 6, widget_type: 'Alarm_Tripped', name: 'Alarm Tripped', active: true },
+      { _id: 1, widget_type: 'Hs_Picker', name: 'Hue and Saturation', hue: 42, sat: 98 },
+      { _id: 2, widget_type: 'Hs_Picker', name: 'Hue and Saturation', hue: 76, sat: 12 },
+      { _id: 3, widget_type: 'Brightness_100', name: 'Dimmer', status: .60 },
+      { _id: 4, widget_type: 'Battery_Life', name: 'Battery Life', battery: .76 },
+      { _id: 5, widget_type: 'Alarm_Tripped', name: 'Alarm Tripped', active: true },
     ];
   },
 
@@ -29,7 +29,7 @@ Widgets_Panel = React.createClass({
     return this.getWidgets().map((widget) => {
 
       MyComponent = this.getComponent(widget.widget_type);
-      return <MyComponent object = {widget} /> ;
+      return <MyComponent key={widget._id} object = {widget} /> ;
     });
   },
 
