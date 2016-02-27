@@ -3,7 +3,7 @@ Widgets_Panel = React.createClass({
 
   getWidgets: function() {
     return [
-      { _id: 1, widget_type: 'Hs_Picker', name: 'Hue and Saturation', hue: 42, sat: 98 },
+      { _id: 1, widget_type: 'On_Off', name: 'On/Off', status: true },
       { _id: 2, widget_type: 'Hs_Picker', name: 'Hue and Saturation', hue: 76, sat: 12 },
       { _id: 3, widget_type: 'Dimmer_100', name: 'Dimmer', dim_value: 60 },
       { _id: 4, widget_type: 'Battery_Life', name: 'Battery Life', battery: .76 },
@@ -37,6 +37,7 @@ Widgets_Panel = React.createClass({
     /* Maintain an array of Widget types here for now*/
     var Components = new Array();
       Components['Widget']      =  Widget;
+      Components['On_Off']      =  On_Off;
       Components['Hs_Picker']   =  Hs_Picker;
       Components['Dimmer_100']  =  Dimmer_100;
 

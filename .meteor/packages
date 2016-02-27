@@ -24,3 +24,5 @@ cosmos:browserify
 
 
 npm-container
+twbs:bootstrap
+ctjp:meteor-bootstrap-switch
