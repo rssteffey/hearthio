@@ -27,7 +27,7 @@ Hs_Picker = React.createClass({
         <div style = {flexStyle} >
           <div id="sliders_box">
             <div><p>Hue: {this.state.hue_value}</p></div>
-            <input type="range" id="hueRange" min="0" max="360" step="1" defaultValue={this.state.hue_value} onChange={this.hueChange} onInput = {this.hueChange} />
+            <input type="range" id="hueRange" min="0" max="360" step="1" defaultValue={this.state.hue_value} onChange={this.hueChangeFinal} onInput = {this.hueChange} />
             <div><p>Sat: {this.state.sat_value}</p></div>
             <input type="range" id="satRange" min="0" max="100" step="1" defaultValue={this.state.sat_value} onChange={this.satChange} onInput = {this.satChange}/>
           </div>
@@ -43,6 +43,12 @@ Hs_Picker = React.createClass({
     this.colorChange();
   },
 
+  hueChangeFinal: function(event) {
+    this.setState({hue_value: event.target.value});
+    this.colorChange();
+    console.log('Yellow.');
+  },
+
   satChange: function(event) {
     this.setState({sat_value: event.target.value});
     this.colorChange();
@@ -54,15 +60,9 @@ Hs_Picker = React.createClass({
     return calc_color;
   },
 
-  getCurrentColor: function(){
-
-    calc_color = this.hsToHex(-1, -1);
-    return calc_color;
-  },
-
   colorChange: function() {
 
-    calc_color = this.getCurrentColor();
+    calc_color = this.getColorFromValues(this.state.hue_value, this.state.sat_value);
     this.setState({color_hex: calc_color});
 
     //Now Justin, you plonk your little api updater method right here now, ya hear?
@@ -72,14 +72,6 @@ Hs_Picker = React.createClass({
 
   hsToHex: function(h, s) {
 
-    if (h == -1)
-    {
-      h = this.state.hue_value;
-    }
-    if (s == -1)
-    {
-      s = this.state.sat_value;
-    }
     v = 100;
 
     h = this.bound01(h, 360) * 6;
