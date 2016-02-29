@@ -9,7 +9,9 @@ Hs_Picker = React.createClass({
   },
 
   render: function() {
-
+    
+    getHueBridgeIpAddress();
+    
     var colorBoxStyle = {
       backgroundColor: this.state.color_hex,
       height: '100px',
