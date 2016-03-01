@@ -1,1 +1,1 @@
-// Meteor.publish definitions.
+// Meteor.publish definitions

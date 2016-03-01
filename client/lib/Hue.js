@@ -15,7 +15,8 @@ createHueUser = function() {
   var hue = new HueApi2();
   
   var displayUserResult = function(result) {
-    console.log("Created user: " + JSON.stringify(result));
+    console.log("Created user: " + result);
+    Meteor.call('addUser', result, userDescription);
   };
   
   var displayError = function(err) {
@@ -29,24 +30,31 @@ createHueUser = function() {
 };
 
 getHueUsers = function() {
-  var api = new HueApi2(ip, '4e27a292405752cf515a4eb23b4a176c');
-  
-  var displayResult = function(result) {
-    //console.log(result);
-    result.devices.forEach(function (user) {
-      if (user.name === userDescription) {
-        //console.log(user.username);
-        deleteHueUser(api, user.username);
-      }
+  Meteor.call('getUsers', userDescription, function(error, result) {
+    var userName = result[0].username;
+    var api = new HueApi2(ip, userName);
+    api.registeredUsers(function(error, result) {
+        if (error) {
+          throw error;
+        }
+        displayResult(result);
     });
-  };
-  
-  api.registeredUsers().then(displayResult).done();
+    
+    var displayResult = function(result) {
+      result.devices.forEach(function (user) {
+        if (user.name === userDescription) {
+          deleteHueUser(api, user.username);
+        }
+      });
+    };
+    
+  });
 };
 
 deleteHueUser = function(api, username) {
   var displayUserResult = function(result) {
     console.log("Deleted user: " + JSON.stringify(result));
+    Meteor.call('deleteUser', userDescription);
   };
   
   var displayError = function(err) {
