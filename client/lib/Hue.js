@@ -11,11 +11,11 @@ getHueBridgeIpAddress = function() {
     ip = bridge[0].ipaddress;
   };
   
-  HueApi.nupnpSearch().then(displayBridges).done();
+  hue.nupnpSearch().then(displayBridges).done();
 };
 
 createHueUser = function() {
-  var hue = new HueApi2();
+  var hue = new HueApi();
   
   var displayUserResult = function(result) {
     console.log("Created user: " + result);
@@ -58,7 +58,7 @@ getHueUsers = function() {
     
     userName = result[0].username;
     var numberOfUsersLeftToDelete = result.length;
-    var api = new HueApi2(ip, userName);
+    var api = new HueApi(ip, userName);
     api.registeredUsers()
       .then(displayResult)
       .fail(displayError)
@@ -81,3 +81,23 @@ deleteHueUser = function(api, username) {
     .fail(displayError)
     .done();
 };
+
+toggleLight = function(onOrOff) {
+  var state = lightState.create();
+  
+  Meteor.call('getUsers', userDescription, function(error, result) {
+    var userName = result[0].username;
+    var displayResult = function(result) {
+      console.log(result);
+    };
+    
+    var stateToToggleTo = onOrOff ? state.on() : state.off();
+    console.log(state);
+    
+    var api = new HueApi(ip, userName);
+    api.setLightState(1, stateToToggleTo)
+      .then(displayResult)
+      .fail(displayError)
+      .done();
+  });
+}

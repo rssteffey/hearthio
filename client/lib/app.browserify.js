@@ -1,2 +1,3 @@
-HueApi = require("node-hue-api");
-HueApi2 = require("node-hue-api").HueApi;
+hue = require("node-hue-api");
+HueApi = hue.HueApi;
+lightState = hue.lightState;
