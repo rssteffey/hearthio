@@ -1,5 +1,8 @@
 var ip = '';
 var userDescription = 'Hearthio#BrowserName';
+var displayError = function(err) {
+  console.log(err);
+};
 
 getHueBridgeIpAddress = function() {
   
@@ -19,10 +22,6 @@ createHueUser = function() {
     Meteor.call('addUser', result, userDescription);
   };
   
-  var displayError = function(err) {
-    console.log(err);
-  };
-  
   hue.registerUser(ip, userDescription)
     .then(displayUserResult)
     .fail(displayError)
@@ -30,35 +29,51 @@ createHueUser = function() {
 };
 
 getHueUsers = function() {
+  var userName = '';
+  
   Meteor.call('getUsers', userDescription, function(error, result) {
-    var userName = result[0].username;
-    var api = new HueApi2(ip, userName);
-    api.registeredUsers(function(error, result) {
-        if (error) {
-          throw error;
-        }
-        displayResult(result);
-    });
+    
+    if (result.length < 1) {
+      console.log('No Hue users');
+      return;
+    }
     
     var displayResult = function(result) {
-      result.devices.forEach(function (user) {
-        if (user.name === userDescription) {
+      
+      result.devices.forEach(function(user) {
+        // Second condition makes sure that the username used for authentication
+        // is saved to delete at the end
+        if (user.name === userDescription && user.username != userName) {
+          numberOfUsersLeftToDelete--;
           deleteHueUser(api, user.username);
         }
       });
+      
+      if (userName !== '') {
+        // This hackiness is here to make sure the authenticated user is deleted after the rest of the users.
+        while (numberOfUsersLeftToDelete > 1);
+        deleteHueUser(api, userName);
+      }
     };
+    
+    userName = result[0].username;
+    var numberOfUsersLeftToDelete = result.length;
+    var api = new HueApi2(ip, userName);
+    api.registeredUsers()
+      .then(displayResult)
+      .fail(displayError)
+      .done();
+    
     
   });
 };
 
 deleteHueUser = function(api, username) {
   var displayUserResult = function(result) {
-    console.log("Deleted user: " + JSON.stringify(result));
-    Meteor.call('deleteUser', userDescription);
-  };
-  
-  var displayError = function(err) {
-    console.log(err);
+    console.log("Deleted user: " + username + ' ' + JSON.stringify(result));
+    if (result) {
+      Meteor.call('deleteUser', userDescription);
+    }
   };
   
   api.deleteUser(username)
