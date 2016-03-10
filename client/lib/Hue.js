@@ -11,7 +11,10 @@ getHueBridgeIpAddress = function() {
     ip = bridge[0].ipaddress;
   };
   
-  hue.nupnpSearch().then(displayBridges).done();
+  hue.nupnpSearch()
+    .then(displayBridges)
+    .fail(displayError)
+    .done();
 };
 
 createHueUser = function() {
