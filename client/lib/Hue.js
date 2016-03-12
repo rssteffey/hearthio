@@ -5,7 +5,6 @@ var displayError = function(err) {
 };
 
 getHueBridgeIpAddress = function() {
-  
   var displayBridges = function(bridge) {
     console.log(bridge[0].ipaddress);
     ip = bridge[0].ipaddress;
@@ -54,7 +53,11 @@ getHueUsers = function() {
       
       if (userName !== '') {
         // This hackiness is here to make sure the authenticated user is deleted after the rest of the users.
-        while (numberOfUsersLeftToDelete > 1);
+        var numberOfTries = 0;
+        while (numberOfUsersLeftToDelete > 1 && numberOfTries < 100) {
+          console.log('Not the last user to delete');
+          numberOfTries++;
+        };
         deleteHueUser(api, userName);
       }
     };
@@ -85,7 +88,7 @@ deleteHueUser = function(api, username) {
     .done();
 };
 
-toggleLight = function(onOrOff) {
+toggleDevice = function(onOrOff) {
   var state = lightState.create();
   
   Meteor.call('getUsers', userDescription, function(error, result) {
@@ -98,9 +101,24 @@ toggleLight = function(onOrOff) {
     console.log(state);
     
     var api = new HueApi(ip, userName);
-    api.setLightState(1, stateToToggleTo)
+    api.setLightState(5, stateToToggleTo)
       .then(displayResult)
       .fail(displayError)
       .done();
   });
-}
+};
+
+
+getDevices = function() {
+  Meteor.call('getUsers', userDescription, function(error, result) {
+    var userName = result[0].username;
+    var displayResult = function(result) {
+      console.log(result);
+    };
+    
+    var api = new HueApi(ip, userName);
+    api.lights()
+      .then(displayResult)
+      .done();
+  });
+};

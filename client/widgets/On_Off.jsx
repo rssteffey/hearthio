@@ -34,7 +34,7 @@ On_Off = React.createClass({
   toggleLight: function() {
 
     //Justin, API call here please.
-    toggleLight(this.state.status);
+    toggleDevice(this.state.status);
   }
 
 });
