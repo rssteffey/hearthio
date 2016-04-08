@@ -36,8 +36,10 @@ House_Panel = React.createClass({
 
   render: function() {
     return (
-      <div id="device_list">
-        {this.renderDevices()}
+      <div id="house-panel" className="colorScheme1">
+        <div id="device_list">
+          {this.renderDevices()}
+        </div>
       </div>
     );
   },

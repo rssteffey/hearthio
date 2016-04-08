@@ -13,15 +13,9 @@ Widgets_Panel = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <header>
-          <h1>Widgets</h1>
-        </header>
-
         <div id="widgets">
           {this.renderWidgets()}
-        </div> 
-      </div>
+        </div>
     );
   },
  
@@ -29,7 +23,7 @@ Widgets_Panel = React.createClass({
     return this.getWidgets().map((widget) => {
 
       MyComponent = this.getComponent(widget.widget_type);
-      return <MyComponent key={widget._id} object = {widget} /> ;
+      return <MyComponent key={widget._id} object = {widget}/> ;
     });
   },
 
