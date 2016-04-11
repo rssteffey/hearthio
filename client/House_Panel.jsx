@@ -29,6 +29,20 @@ House_Panel = React.createClass({
                   "active_color_type": "chosen_value",
                   "active_color": "#FFFFFF",
                   "inactive_color": "#999999"
+                }
+              },
+              { 
+                "id": "3", 
+                "device_name": "Living Room Lamp 1", 
+                "widgets": {
+                  "On_Off" : { "_id": "1", "widget_type": "On_Off", "name": "On/Off", "status": "true" },
+                  "Dimmer_100" : { "_id": "3", "widget_type": "Dimmer_100", "name": "Dimmer", "dim_value": "60" }
+                },
+                "style": {
+                  "icon": "lightbulb_1",
+                  "active_color_type": "chosen_value",
+                  "active_color": "#FFFFFF",
+                  "inactive_color": "#999999"
                 } 
               }
     ];
@@ -37,8 +51,10 @@ House_Panel = React.createClass({
   render: function() {
     return (
       <div id="house-panel" className="colorScheme1">
-        <div id="device_list">
-          {this.renderDevices()}
+        <div id="pan_and_scan">
+          <div id="device_list">
+            {this.renderDevices()}
+          </div>
         </div>
       </div>
     );

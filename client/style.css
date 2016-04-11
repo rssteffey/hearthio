@@ -26,13 +26,13 @@ body {
 
 /* Main blueprint */
 .colorScheme1{
-	background-color: #2F67FA;
+	background-color: #AB1620;  /* #2F67FA */
 	color: #FFFFFF;
 }
 
 /* Nav bars */
 .colorScheme2{
-	background-color: #00279C;
+	background-color: #5F6062 ;  /* #00279C */
 	color: #FFFFFF;
 }
 
@@ -120,7 +120,7 @@ body {
 
 	min-height: 100%;
 	max-height: 100%;
-	overflow: scroll;
+	overflow: auto;
 }
 
 #widgets {
