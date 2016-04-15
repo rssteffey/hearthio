@@ -1,4 +1,10 @@
-Meteor.startup(function () {
-    // Use Meteor.startup to render the component after the page is ready
-    ReactDOM.render(<App />, document.getElementById("render-target"));
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
+
+//import '../imports/startup/accounts-config.js';
+import App from '../imports/ui/components/App.jsx';
+
+Meteor.startup(() => {
+    render(<App />, document.getElementById('render-target'));
 });

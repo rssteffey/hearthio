@@ -1,1 +1,0 @@
-// Sensitive permissions code used by your server.
