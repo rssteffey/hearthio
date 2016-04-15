@@ -7,11 +7,11 @@ class Nav_Bar extends Component {
 
   getFilters() {
     return [
-      { _id: 1, filter_type: 'Lights', name: 'Lights', icon:'bulb.png', status: true },
-      { _id: 2, filter_type: 'Sockets', name: 'Power', icon:'plug.png',status: false },
-      { _id: 3, filter_type: 'Speakers', name: 'Audio', icon:'speaker.png',status: true },
-      { _id: 4, filter_type: 'Thermostats', name: 'Climate', icon:'flame.png',status: false },
-      { _id: 5, filter_type: 'Sensors', name: 'Sensors', icon:'custom/14356.png',status: false },
+      { _id: 1, filter_type: 'Lights', name: 'Lights', icon:'bulb.svg', status: true },
+      { _id: 2, filter_type: 'Sockets', name: 'Power', icon:'plug.svg',status: false },
+      { _id: 3, filter_type: 'Speakers', name: 'Audio', icon:'speaker.svg',status: true },
+      { _id: 4, filter_type: 'Thermostats', name: 'Climate', icon:'thermometer.svg',status: false },
+      { _id: 5, filter_type: 'Sensors', name: 'Sensors', icon:'speedometer.svg',status: false },
     ];
   }
 
