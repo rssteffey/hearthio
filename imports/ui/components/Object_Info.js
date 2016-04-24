@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Widgets_Panel from './Widgets_Panel.jsx';
+import Widgets_Panel from './Widgets_Panel';
 
 
 class Object_Info extends Component {

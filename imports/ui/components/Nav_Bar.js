@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Filter from './Filter.jsx';
+import Filter from './Filter';
 
 
 class Nav_Bar extends Component {
@@ -23,17 +23,17 @@ class Nav_Bar extends Component {
         </div>
         <div id="filters-container">
           {this.renderFilters()}
-        </div> 
+        </div>
       </div>
     );
   }
- 
+
   renderFilters() {
     return this.getFilters().map((filter) => {
       return <Filter key={filter._id} object = {filter} /> ;
     });
   }
-  
+
 }
 
 export default Nav_Bar;

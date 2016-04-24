@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Widget from './widgets/Widget.jsx';
-import On_Off from './widgets/On_Off.jsx';
-import Hs_Picker from './widgets/Hs_Picker.jsx';
-import Dimmer_100 from './widgets/Dimmer_100.jsx';
+import Widget from './widgets/Widget';
+import On_Off from './widgets/On_Off';
+import Hs_Picker from './widgets/Hs_Picker';
+import Dimmer_100 from './widgets/Dimmer_100';
 
 
 class Widgets_Panel extends Component {
@@ -24,7 +24,7 @@ class Widgets_Panel extends Component {
         </div>
     );
   }
- 
+
   renderWidgets() {
     return this.getWidgets().map((widget) => {
 
@@ -48,9 +48,9 @@ class Widgets_Panel extends Component {
 
     return Components[widget_type];
   }
-  
- 
-  
+
+
+
 }
 
 export default Widgets_Panel;

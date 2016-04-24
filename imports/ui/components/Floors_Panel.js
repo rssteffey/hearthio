@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Floor from './Floor.jsx';
+import Floor from './Floor';
 
 
 // Floors Panel
@@ -18,11 +18,11 @@ class Floors_Panel extends Component {
       <div id="floors-panel" className="colorScheme2">
         <div id="floors">
           {this.renderFloors()}
-        </div> 
+        </div>
       </div>
     );
   }
- 
+
   renderFloors() {
     return this.getFloors().map((floor) => {
       return <Floor key={floor._id} object = {floor} /> ;
