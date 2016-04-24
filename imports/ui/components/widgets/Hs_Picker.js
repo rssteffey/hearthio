@@ -11,7 +11,7 @@ class Hs_Picker extends Component {
     };
   }
   */
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,11 +19,15 @@ class Hs_Picker extends Component {
       sat_value: props.object.sat,
       color_hex: this.getColorFromValues(props.object.hue, props.object.sat)
     };
+    // http://egorsmirnov.me/2015/08/16/react-and-es6-part3.html
+    this.hueChangeFinal = this.hueChangeFinal.bind(this);
+    this.hueChange = this.hueChange.bind(this);
+    this.satChange = this.satChange.bind(this);
   }
 
   render() {
     //getHueBridgeIpAddress();
-    
+
     var colorBoxStyle = {
       backgroundColor: this.state.color_hex,
       height: '100px',
@@ -45,7 +49,7 @@ class Hs_Picker extends Component {
             <div><p>Sat: {this.state.sat_value}</p></div>
             <input type="range" id="satRange" min="0" max="100" step="1" defaultValue={this.state.sat_value} onChange={this.satChange} onInput = {this.satChange}/>
           </div>
-          <div style = {colorBoxStyle}> 
+          <div style = {colorBoxStyle}>
           </div>
         </div>
       </div>
@@ -113,8 +117,8 @@ class Hs_Picker extends Component {
   }
 
   _bound01(n, max) {
-    if (this._isOnePointZero(n)) { 
-      n = "100%"; 
+    if (this._isOnePointZero(n)) {
+      n = "100%";
     }
 
     n = Math.min(max, Math.max(0, parseFloat(n)));

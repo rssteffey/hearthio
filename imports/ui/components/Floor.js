@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 
 // Floor component - represents a floor thumbnail to be rendered in the levels list
 class Floor extends Component {
-  
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: props.object.id,
+      thumb: props.object.thumb,
+      name: props.object.name,
+    };
+  }
+
   render() {
   	var floor_style = {
-			backgroundImage:   'url(/assets/floor_thumbs/' + this.props.object.thumb + ')', //icon to render as a preview of the floorplan
+			backgroundImage:   'url(/assets/floor_thumbs/' + this.state.thumb + ')', //icon to render as a preview of the floorplan
 			height: '100px',
 			minHeight: '100px'
     };
@@ -13,10 +22,10 @@ class Floor extends Component {
     /*var id = {this.props.object.id};*/
     return (
     	<div className="floor" >
-			<input type="radio" id={this.props.object.id} name="floor_group"  value={this.props.object.id} />
-			<label className="floor_radio" htmlFor= {this.props.object.id}  >
+			<input type="radio" id={this.props.object.id} name="floor_group"  value={this.state.id} />
+			<label className="floor_radio" htmlFor= {this.state.id}  >
 				<div style={floor_style}> </div>
-				<h5> {this.props.object.name} </h5>
+				<h5> {this.state.name} </h5>
 			</label>
     	</div>
     );
