@@ -23,8 +23,9 @@ class Filter extends Component {
 		  <div className="nav-item filter">
 		    <input type="checkbox"/>
 		    <label className="filter_label"  >
-		    		<object data = {'/assets/icons/filters/' + this.state.icon_name + ''} style = {svg_style} type="image/svg+xml" className = "filter_svg">
-		    		</object>
+	    		<svg style = {svg_style}>
+	    			<use xlinkHref={'/assets/icons/filters/filter_icons.svg#' + this.state.icon_name + ''}></use>
+	    		</svg>
 			</label>
 		  </div>
 		);
