@@ -5,9 +5,9 @@ import '../client/style.css';
 const req = require.context('../imports/ui/components/stories/', true, /\.js$/);
 
 function loadStories() {
-  // Stories can also be individually defined in imported in stories/index.js
-  //require('../imports/ui/components/stories/');
-  req.keys().forEach(req);
+   // Stories can also be individually defined in imported in stories/index.js
+   // require('../imports/ui/components/stories/');
+   req.keys().forEach(req);
 }
 
 configure(loadStories, module);
