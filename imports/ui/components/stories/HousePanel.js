@@ -5,6 +5,6 @@ import { storiesOf, action } from '@kadira/storybook';
 const stuff = { };
 
 storiesOf('HousePanel', module)
-   .add('Light', () => (
-      <HousePanel object={stuff} />
-   ));
+	.add('Light', () => (
+		<HousePanel object={stuff} />
+	));

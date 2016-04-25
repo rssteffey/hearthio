@@ -3,6 +3,6 @@ import NavBar from '../NavBar';
 import { storiesOf, action } from '@kadira/storybook';
 
 storiesOf('NavBar', module)
-   .add('Test', () => (
-      <NavBar />
-   ));
+	.add('Test', () => (
+		<NavBar />
+	));

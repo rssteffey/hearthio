@@ -9,27 +9,27 @@ import ObjectInfo from './ObjectInfo';
 
 
 class App extends Component {
-   constructor(props) {
-      super(props);
+	constructor(props) {
+		super(props);
 
-      /*
-      this.state = {
-      hideCompleted: false,
-      };
-      */
-   }
+		/*
+		this.state = {
+		hideCompleted: false,
+		};
+		*/
+	}
 
-   render() {
-      return (
-         <div id="container">
-            <Loading_Panel id="loadScreen" />
-            <HousePanel />
-            <NavBar />
-            <FloorsPanel />
-            <ObjectInfo />
-         </div>
-      );
-   }
+	render() {
+		return (
+			<div id="container">
+				<Loading_Panel id="loadScreen" />
+				<HousePanel />
+				<NavBar />
+				<FloorsPanel />
+				<ObjectInfo />
+			</div>
+		);
+	}
 }
 
 export default App;
