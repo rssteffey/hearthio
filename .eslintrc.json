@@ -1,0 +1,21 @@
+{
+    "extends": "airbnb",
+    "plugins": [
+        "react",
+        "meteor"
+    ],
+    "rules": {
+        "indent": ["error", 3],
+        "react/jsx-indent": ["error", 3],
+        "no-multi-spaces": [
+            "error", {
+                "exceptions": {
+                    "Property": true,
+                    "VariableDeclarator": true,
+                    "ImportDeclaration": true
+                }
+            }
+        ],
+        "no-underscore-dangle": "off"
+    }
+}
