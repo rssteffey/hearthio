@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 
-import Login from './Login';
+// import Login from './Login';
 
-import House_Panel from './House_Panel';
-import Nav_Bar from './Nav_Bar';
-import Floors_Panel from './Floors_Panel';
-import Object_Info from './Object_Info';
+import HousePanel from './HousePanel';
+import NavBar from './NavBar';
+import FloorsPanel from './FloorsPanel';
+import ObjectInfo from './ObjectInfo';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+   constructor(props) {
+      super(props);
 
-    /*
-    this.state = {
+      /*
+      this.state = {
       hideCompleted: false,
-    };
-    */
-  }
+      };
+      */
+   }
 
-  render() {
-    return (
-      <div id="container">
-      	<House_Panel />
-      	<Nav_Bar />
-      	<Floors_Panel />
-      	<Object_Info />
-      </div>
-    );
-  }
+   render() {
+      return (
+         <div id="container">
+            <HousePanel />
+            <NavBar />
+            <FloorsPanel />
+            <ObjectInfo />
+         </div>
+      );
+   }
 }
 
 export default App;

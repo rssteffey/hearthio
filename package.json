@@ -1,9 +1,21 @@
 {
-  "name": "hearthio_1.3",
+  "name": "hearthio",
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "storybook": "start-storybook -p 9001 -s ./public"
+    "storybook": "start-storybook -p 9001 -s ./public",
+    "lint": "eslint",
+    "pretest": "npm run lint --silent"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "meteor"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:meteor/recommended"
+    ],
+    "rules": {}
   },
   "dependencies": {
     "jquery": "^2.2.3",
@@ -14,6 +26,12 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^1.17.1",
+    "eslint": "^2.8.0",
+    "eslint-config-airbnb": "^8.0.0",
+    "eslint-plugin-import": "^1.5.0",
+    "eslint-plugin-jsx-a11y": "^1.0.2",
+    "eslint-plugin-meteor": "^3.5.2",
+    "eslint-plugin-react": "^5.0.1",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1"
   }
