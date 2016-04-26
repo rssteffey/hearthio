@@ -1,6 +1,10 @@
-// Everything that should be loaded on page load
-import $ from 'jquery';
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
 
-$(document).ready(function() {
-	//$('#loadScreen').update(60);
+//import '../imports/startup/accounts-config.js';
+import App from '../imports/ui/components/App.jsx';
+
+Meteor.startup(() => {
+    render(<App />, document.getElementById('render-target'));
 });
