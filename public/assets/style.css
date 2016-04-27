@@ -26,7 +26,7 @@ body {
 
 /* Main blueprint */
 .colorScheme1{
-	background-color: #AB1620;  /* #2F67FA */
+	background-color:  #2F67FA ;
 	color: #FFFFFF;
 }
 
@@ -129,14 +129,12 @@ body {
 	border-radius: 10%;
 }
 
-.filter_label:hover{
+.filter_label:hover {
 	border-color: #FFFFFF;
 }
 
-svg{
+svg {
 	fill: #FFFFFF;
-	color: #FFFF00;
-	border-color: #FF0000;
 }
 
 /* */
@@ -144,7 +142,7 @@ svg{
 /*----------------------------------------------------------------
 -------------------- Object Info (Widgets) -----------------------
 ----------------------------------------------------------------*/
-#object-info{
+#object-info {
 	z-index: 10;
 	position: absolute;
 	right: 0;

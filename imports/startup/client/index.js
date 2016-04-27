@@ -1,7 +1,7 @@
-// Everything that should be loaded on page load
-import $ from 'jquery';
 import { panzoom } from 'jquery.panzoom';
 
+
+//Allow panning of background image
 $(document).ready(function() {
 	$("#pan_and_scan").panzoom();
 });
