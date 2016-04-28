@@ -5,8 +5,8 @@
         "meteor"
     ],
     "rules": {
-        "indent": ["error", 3],
-        "react/jsx-indent": ["error", 3],
+        "indent": ["error", "tab"],
+        "react/jsx-indent": ["error", "tab"],
         "no-multi-spaces": [
             "error", {
                 "exceptions": {
