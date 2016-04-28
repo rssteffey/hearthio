@@ -22,7 +22,7 @@ class Filter extends Component {
 			<div className="nav-item filter">
 				<input type="checkbox"/>
 				<label className="filter_label"  >
-					<svg style={svgStyle}>
+					<svg style={svgStyle} className="filter">
 						<use xlinkHref={'/assets/icons/filters/filter_icons.svg#' + this.state.iconName + ''}></use>
 					</svg>
 				</label>

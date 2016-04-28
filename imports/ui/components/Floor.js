@@ -24,8 +24,10 @@ class Floor extends Component {
 			<div className="floor" >
 				<input type="radio" id={this.props.object.id} name="floor_group" value={this.state.id} />
 				<label className="floor_radio" htmlFor={this.state.id} >
-					<div style={floorStyle}> </div>
-					<h5> {this.state.name} </h5>
+					<div className="floor_label_div" >
+						<div style={floorStyle}> </div>
+						<h5> {this.state.name} </h5>
+					</div>
 				</label>
 			</div>
 		);
