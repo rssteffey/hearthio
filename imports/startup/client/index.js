@@ -3,7 +3,7 @@ import { panzoom } from 'jquery.panzoom';
 
 
 // Allow panning of background image
-$(window).ready(function() {
+$(document).ready(function() {
 	console.log('panzoom loaded');
 	$("#pan_and_scan").panzoom();
 });
