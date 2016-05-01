@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Meteor } from 'meteor/meteor';
+import { createContainer } from 'meteor/react-meteor-data';
 
 // import Login from './Login';
 
@@ -7,30 +9,47 @@ import NavBar from './NavBar';
 import FloorsPanel from './FloorsPanel';
 import ObjectInfo from './ObjectInfo';
 import LoadingPanel from './LoadingPanel';
+import UserAccountsWrapper from './login/UserAccountsWrapper';
 
 
 class App extends Component {
 	constructor(props) {
 		super(props);
-
-		/*
-		this.state = {
-		hideCompleted: false,
-		};
-		*/
 	}
+
+
+	renderContent() {
+		let content = '';
+		if (this.props.loggedInUser) {
+			content = <div id="container">
+			             <LoadingPanel />
+			             <HousePanel />
+			             <NavBar />
+			             <FloorsPanel />
+			             <ObjectInfo />
+			          </div>;
+		}
+		return content;
+	}
+
 
 	render() {
 		return (
 			<div id="container">
-			<LoadingPanel />
-				<HousePanel />
-				<NavBar />
-				<FloorsPanel />
-				<ObjectInfo />
+				<UserAccountsWrapper />
+				{this.renderContent()}
 			</div>
 		);
 	}
 }
 
-export default App;
+App.propTypes = {
+	loggedInUser: PropTypes.object,
+};
+
+
+export default createContainer(() => {
+	return {
+		loggedInUser: Meteor.user(),
+	};
+}, App);

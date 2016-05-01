@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 // Floor component - represents a floor thumbnail to be rendered in the levels list
 class Floor extends Component {
@@ -33,5 +33,9 @@ class Floor extends Component {
 		);
 	}
 }
+
+Floor.propTypes = {
+	object: PropTypes.object.isRequired,
+};
 
 export default Floor;

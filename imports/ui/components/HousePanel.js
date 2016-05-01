@@ -76,7 +76,7 @@ class HousePanel extends Component {
 	render() {
 		return (
 			<div id="house-panel" className="colorScheme1">
-				<div id="pan_and_scan">
+				<div id="pan_and_scan" ref={() => require('../../startup/client/index.js')}>
 					<div className="relative-container">
 						<svg id="blueprint_svg" className="blueprint">
 							<use xlinkHref="/assets/blueprint/2019.svg#blueprint"></use>
